@@ -5,9 +5,10 @@ from django.db import models
 
 # 准备书籍列表信息的模型类
 class BookInfo(models.Model):
-    # objects = models.Manager()
+    objects = models.Manager()
     # 创建字段，字段类型...
     # verbose_name在admin站点中显示的名称
+
     name = models.CharField(max_length=20, verbose_name='名称')
     pub_date = models.DateField(verbose_name='发布日期', null=True)
     readcount = models.IntegerField(default=0, verbose_name='阅读量')
