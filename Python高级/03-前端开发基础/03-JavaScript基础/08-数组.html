@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 定义数组
+        var aArray1 = new Array(1, 2, 3)
+        console.log(aArray1)
+        // 赋值数组
+        var aArray2 = [3, 6, 9]
+        console.log(aArray2)
+        // 多维数组
+        var aArray3 = [[1, 2, 3], [4, 5, 6]]
+        console.log(aArray3)
+        // 根据下标获取数据
+        console.log(aArray3[1][1])
+        // 获取数组的长度
+        console.log(aArray3.length)
+        // 不支持负数下标
+
+
+        // 数组的操作
+        // 数组的修改
+        aArray3[0][0] = 2
+        console.log(aArray3)
+        // 追加数据
+        aArray2.push('hello')
+        console.log('a2: ' + aArray2)
+        // 删除末尾数据, 修改保存到新数组
+        var aArray4 = aArray2.pop()
+        console.log('a2: ' + aArray2)
+        console.log('a4: ' + aArray4)
+        // 插入数据
+        aArray2.splice(0, 0, '插入') // 1, 开始删除的下标(包括) 2, 删除的个数 3, 插入的数据  !!!把0位置占掉
+        console.log('插入数据-a2: ' + aArray2)
+            //删除下标2后面的一个数据
+            aArray2.splice(2, 2)
+            console.log('连续删除数据-a2: ' + aArray2)
+            // 连续添加数据
+            aArray2.splice(2, 0, '4', '5')
+            console.log('连续添加数据-a2: ' + aArray2)
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

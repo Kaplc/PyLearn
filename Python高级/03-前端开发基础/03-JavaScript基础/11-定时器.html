@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 一次定时器: 根据指定的时间间隔调用指定的函数执行一次
+        function fnShow(name, age){
+            console.log('参数1: ' + name + ' ' + '参数2: ' + age)
+            // 销毁定时器
+            clearTimeout(tid)
+
+        }
+        var tid = setTimeout(fnShow, 500, 'zzy', 20) // 1, 定时器要执行的函数 2, 时间间隔 3, 参数1  4,参数2 ....
+        // 返回值表示第几个定时器
+
+        // 安照时间间隔重复执行定时器
+        var sid = setInterval(fnShow,  500, 'zzy', 20)
+
+        function fnStop(){
+            clearInterval(sid)
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="停止" onclick="fnStop()">
+</body>
+</html>

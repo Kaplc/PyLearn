@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 获取的对象是null, 表示标签没有获取成功
+        function fnLoad(){
+            var oP = document.getElementById("p1");
+            alert(oP);
+        }
+        // 页面加载完成的事件
+        window.onload = fnLoad;
+
+        // 匿名函数写法
+        window.onload = function(){
+            var oP = document.getElementById("p1");
+            alert(oP);
+        }
+    </script>
+</head>
+<body>
+    <p id="p1">11111111</p>
+</body>
+</html>

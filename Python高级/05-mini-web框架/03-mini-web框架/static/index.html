@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页 - 个人选股系统 V5.87</title>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+                // 遍历每一个name='toAdd'的input
+                // each()遍历到的每一个对象要执行的函数
+                $("input[name='toAdd']").each(function(){  
+                    // this取本次遍历的对象
+                    var currentAdd = $(this);  
+                    // 点击事件
+                    currentAdd.click(function(){  
+                       StockId = $(this).attr("stockId"); 
+                        $.post( // 请求url
+                            "",
+                            {"requestType": "add", "StockId": StockId}, // 发送给服务器的参数
+                            function(){
+                                alert("已添加至个人中心")
+                            } // 请求成功执行的函数
+                        ).error(function(){
+                            alert("添加失败,请检查网络链接!")
+                            return false
+                        });
+
+                    });  
+                });  
+
+        });
+    </script>
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-static-top ">
+        <div class="container">
+        <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#mymenu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                 </button>
+                 <a href="#" class="navbar-brand">选股系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="mymenu">
+                <ul class="nav navbar-nav">
+                        <li class="active"><a href="">股票信息</a></li>
+                        <li><a href="center.html">个人中心</a></li>
+                </ul>
+        </div>
+        </div>
+</div>
+<div class="container">
+
+    <div class="container-fluid">
+
+        <table class="table table-hover">
+            <tr>
+                    <th>序号</th>
+                    <th>股票代码</th>
+                    <th>股票简称</th>
+                    <th>涨跌幅</th>
+                    <th>换手率</th>
+                    <th>最新价(元)</th>
+                    <th>前期高点</th>
+                    <th>前期高点日期</th>
+                    <th>添加自选</th>
+                     
+            </tr>
+            
+            {%content%}
+        </table>
+    </div>
+</div>
+</body>
+</html>            

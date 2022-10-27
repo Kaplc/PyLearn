@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            /* 标签隐藏不占位置 */
+            display: none;
+        }
+        .box2{
+            background: red;
+            /* 和其他元素在一行显示, 通常用浮动设置 */
+            display: inline;
+        }
+        a{
+            /* 设置自己单独一行 */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        111
+    </div>
+    <p>222</p>
+    <div class="box2">
+        333
+    </div>
+    <a href="http://www.baidu.com">百度</a>
+    <a href="http://www.baidu.com">百度</a>
+</body>
+</html>

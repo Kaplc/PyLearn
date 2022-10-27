@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 表单标签用来收集用户数据,并发送给服务器 -->
+    <form action="">
+        <p> 
+            <!-- for指定哪个id的标签收集数据 -->
+            <label for="name">name:</label>
+            <!-- type控制输入的类型 -->
+            <!-- text:文本 -->
+            <input type="text" id="name">
+        </p>
+        <p>
+            <!-- password:密码 -->
+            <label for="password">password:</label>
+            <input type="password" id="password">
+        </p>
+        <p>
+            <!-- radio:单选 -->
+            <label for="">性别:</label>
+            <input type="radio">男
+            <input type="radio" name="" id="">女
+        </p>
+        <p>
+            <!-- checkbox: 多选 -->
+            <label for="">爱好:</label>
+            <input type="checkbox" name="" id="">学习
+            <input type="checkbox" name="" id="">睡觉
+            <input type="checkbox" name="" id="">喝水
+        </p>
+        <p>
+            <!-- file:文件 -->
+            <label for="照片">照片:</label>
+            <input type="file" name="" id="">
+        </p>
+        <p>
+            <!-- textarea:多行文字 -->
+            <label for="">个人描述</label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+            <!-- 选择列表 -->
+            <label for="">籍贯:</label>
+            <select name="" id="">
+                <option value="">北京</option>
+                <option value="">上海</option>
+                <option value="">广州</option>
+                <option value="">深圳</option>
+            </select>
+        </p>
+        <p>
+            <!-- submit:提交按钮 reset:重置 button: 普通按钮-->
+            <input type="submit" name="" id="" value="提交">
+            <input type="reset" value="重置" name="" id="">
+            <input type="button" value="按键" name="" id="">
+        </p>
+    </form>
+
+</body>
+</html>

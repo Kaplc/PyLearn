@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 标签选择器 */
+        p {
+            color: aqua;
+
+        }
+        /* 类选择器 */
+        .myp {
+            color: aquamarine;
+        }
+        .mypg {
+            background: blue;
+        }
+        /* 层级选择器 */
+        div div {
+            color: green;
+        }
+        div .box {
+            color: blue;
+        }
+        div div p {
+            color: red;
+        }
+        /* id选择器 */
+        #myid1 {
+            color: burlywood;
+        }
+        /* 组选择器 */
+        /* 样式相同可以放在一起, 不同的可以分开书写 */
+        /* css的样式可以追加不会覆盖 */
+        .box1, .box2, .box3 {
+            width: 100px;
+            height: 100px;
+        }
+        .box1 {
+            background: red;
+        }
+        .box2 {
+            background: green;
+        }
+        .box3 {
+            background-color: blue;
+        }
+        /* 伪类选择器给其他选择器添加特殊效果, 在选择器后面加':'控制 */
+        .box3:hover {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 161, 239);
+
+        }
+
+    </style>
+</head>
+<body>
+    <p>标签选择器</p>
+    <p class="myp">类选择器</p>
+    <p class="myp mypg">一个标签两个类</p>
+
+    <div>
+        <div>
+            父子层级选择器
+        </div>
+        <div class="box">层级加类选择器</div>
+        <div>
+            <p>祖孙层级选择器</p>
+        </div>
+    </div>
+
+    <div id="myid1">id选择器</div>
+    <!-- id是标签的唯一标识不能重复 -->
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>

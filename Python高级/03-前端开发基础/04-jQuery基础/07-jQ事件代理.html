@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        // 事件冒泡: 事件会从子控件逐渐传递到父控件(点击子控件也会触发父控件的点击事件)
+        // 事件代理就是把事件加到父级上, 通过判断事件的来源, 执行相应的子元素操作
+        $(function(){
+
+            // 事件冒泡
+            var $bt1 = $("#bt1")
+            var $div = $("div")
+            $bt1.click(function(){
+                console.log("按钮1点击成功")
+                // 可以设置事件冒泡取消
+                return false
+            })
+            $div.click(function(){
+                console.log("div同时被点击事件冒泡触发")
+            })
+
+            // 事件代理
+            var $ul = $("ul")
+            // delegate("选择的子标签1, 子标签2 ...", "事件", 要执行的函数)
+            $ul.delegate("li", "click", function(){
+                $(this).css({"color": "red"})
+            })
+            // 代理不同的子控件事件
+            var $div2 = $("#div2")
+            $div2.delegate("#p2, #bt2", "click", function(){
+                $(this).css({"color": "red"})
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+    <div>
+        <p id="p1">p1</p>
+        <input type="button" value="按钮1" id="bt1">
+        <ul>
+            <li>li1</li>
+            <li>li2</li>
+            <li>li3</li>
+            <li>li4</li>
+        </ul>
+    </div>
+
+    <div id="div2">
+        <p id="p2">p2</p>
+        <input type="button" value="按钮2" id="bt2">
+    </div>
+</body>
+</html>

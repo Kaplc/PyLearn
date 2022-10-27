@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bt{
+            background-color: yellow;
+            font-size: 30px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // id获取标签
+            var oP = document.getElementById("b1")
+            // 获取属性
+            alert(b1.type)
+            alert(b1.value)
+            // 修改属性
+            b1.name = "user"
+            // 修改css
+            b1.className = "bt"
+
+            // 
+            var oP1 = document.getElementById("dd")
+            // 获取标签内容
+            alert(dd.innerHTML)
+            // 修改标签内容
+            oP1.innerHTML = "<a href='http://www.douyin.com'>抖音</a>"
+        }
+    </script>
+</head>
+<body>
+    <input type="button" name="" id="b1" value="按钮">
+    <div id="dd">
+        666
+    </div>
+    
+</body>
+</html>

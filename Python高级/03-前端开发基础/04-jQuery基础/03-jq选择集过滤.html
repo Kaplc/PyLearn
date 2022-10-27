@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            // 通过jq选择器获取所有div标签构成选择集
+            var $divs = $("div")
+            // 从选择集获取包含有指定选择器的标签
+            $divs.has(".first").css({"background": "red"})
+            // 从选择集里面通过下标选择对应的标签
+            $divs.eq(1).css({"background": "green"})
+        })
+      
+    </script>
+</head>
+<body>
+    <div>
+        <p class="first">first table</p>
+    </div>
+    <div>
+        <input type="button" value="按钮">
+    </div>
+</body>
+</html>

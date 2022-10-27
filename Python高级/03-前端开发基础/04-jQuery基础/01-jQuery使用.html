@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入js要单开一行script -->
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        // 原生js写法
+        window.onload = function(){
+            var oDiv = document.getElementById("div1")
+            // console.log(oDiv)
+        }
+        // $是jQuery象征, $的本质就是函数, 函数名是$
+        $(document).ready(function(){
+            // 获取标签和css的样式匹配一致
+            var $div = $("div1")
+            console.log($div)
+        })
+
+        // jq简写
+        $(function(){
+            var $div2 = $("div2")
+            console.log($div2)
+        })
+
+    </script>
+</head>
+<body>
+    <div id="div1">第一个标签</div>
+    <div id="div2">第二个标签</div>
+</body>
+</html>

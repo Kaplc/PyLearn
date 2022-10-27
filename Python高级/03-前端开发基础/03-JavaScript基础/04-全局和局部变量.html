@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnShow(){
+            // 局部变量
+            var iNum = 1
+            alert(iNum)
+        }
+
+        // 调用函数
+        fnShow()
+        // 局部变量无法在函数外调用
+        // alert(iNum)
+
+        // 全局变量
+        var iNum1 = 2
+        function fnModify(){
+            alert(iNum1)
+            iNum1++
+            
+        }
+        fnModify()
+        alert(iNum1)
+        // 自动转换类型
+        alert("数字:" + iNum1)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
