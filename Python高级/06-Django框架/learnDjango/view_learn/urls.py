@@ -16,5 +16,10 @@ urlpatterns = [
     # 请求体POST非表单
     re_path(r'^body_bnf/', request_body_nfdata),
     # 请求头传参
-    re_path(r'^header/', request_header)
+    re_path(r'^header/', request_header),
+    # HttpResponse_I
+    re_path(r'resi/', http_response_i),
+    # HttpResponse_II
+    re_path(r'resii/', http_response_ii),
+
 ]

@@ -90,3 +90,28 @@ def request_header(request):
     print(request.encoding)  # 一个字符串，表示提交的数据的编码方式
     print(request.FILES)  # 一个类似于字典的对象，包含所有的上传文件
     return HttpResponse("请求头传参")
+
+
+# ---------HttpResponse对象------------
+
+def http_response_i(request):
+    # 获取HttpResponse对象
+    response = HttpResponse()
+    # 调用属性方式设置状态码(100-599)
+    response.status_code = 200
+    # 自定义响应头It-cast, 值为Python
+    response['It-cast'] = 'Python'
+    return response
+
+
+def http_response_ii(res):
+    # 或者
+    # HttpResponse(content=响应体, content_type=响应体数据类型, status=状态码)
+    # content_type是mime类型: text/html, text/css等等
+    # 状态码只能是系统规定的100~599
+    # context只能传递字符串
+    data = {
+        "data": "aaa"
+    }
+
+    return HttpResponse(content=data, content_type='', status=200)
