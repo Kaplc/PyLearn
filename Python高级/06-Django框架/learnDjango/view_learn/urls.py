@@ -21,5 +21,8 @@ urlpatterns = [
     re_path(r'resi/', http_response_i),
     # HttpResponse_II
     re_path(r'resii/', http_response_ii),
-
+    # JsonRespons
+    re_path(r'^json/', json_response),
+    # redirect重定向
+    re_path(r'redirect', redirect_i)
 ]

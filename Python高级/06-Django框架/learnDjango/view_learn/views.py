@@ -115,3 +115,30 @@ def http_response_ii(res):
     }
 
     return HttpResponse(content=data, content_type='', status=200)
+
+
+# --------JsonResponse----------
+# 返回json数据，可以使用JsonResponse来构造响应对象
+
+# 自动设置
+# 帮助我们将数据转换为json字符串
+# 设置响应头Content-Type为application/json
+
+from django.http import JsonResponse
+
+
+def json_response(req):
+    json_data = {
+        "aaa": "1",
+        "bbb": "2"
+    }
+    return JsonResponse(json_data)
+
+
+# --------redirect重定向-----------
+from django.shortcuts import redirect
+
+
+def redirect_i(request):
+    # 参数是除ip和端口的完整的url
+    return redirect('/view/index')

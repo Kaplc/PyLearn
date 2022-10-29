@@ -32,6 +32,20 @@
 
 3- JsonResponse
     返回json数据，可以使用JsonResponse
+
+    帮助我们将数据转换为json字符串
+    设置响应头Content-Type为application/json
+
     
+4- redirect重定向
+    from django.shortcuts import redirect
+
+    # 参数是除ip和端口的完整的url
+    def response(request):
+        return redirect('/get_header')
+
+
+
+
 
 """
