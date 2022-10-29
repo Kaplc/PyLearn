@@ -142,3 +142,55 @@ from django.shortcuts import redirect
 def redirect_i(request):
     # 参数是除ip和端口的完整的url
     return redirect('/view/index')
+
+
+# ----------cookie----------------
+
+def set_cookie(req):
+    response = HttpResponse()
+    # 从响应发送cookie
+    # set_cookie(cookie名, cookie值, max_age=过期时间(秒))
+    response.set_cookie("set_cookie", "value", max_age=100)
+    return response
+
+
+def read_cookie(req):
+    # 从请求获取cookie
+    cookie = req.COOKIES.get('set_cookie')
+    print(cookie)
+    return HttpResponse("read_cookie")
+
+
+def del_cookie(req):
+    # 从请求删除cookie
+    res = HttpResponse()
+    res.delete_cookie('set_cookie')
+    return res
+
+
+# -----------session-------------
+
+def set_session(req):
+    print(req.COOKIES)
+    username = 'zzy'
+    # 设置session, 并保存至数据库
+    # req.session['储存到数据库的关键字'] = username
+    req.session['username'] = username
+
+    return HttpResponse("set_session")
+
+
+def get_session(req):
+    # 从数据库获取session通过关键字
+    session_data = req.session.get('username')
+    print(session_data)
+
+    return HttpResponse("get_session")
+
+
+def del_session(req):
+    # req.session.clear()
+    # 从数据库删除session
+    req.session.flush()
+
+    return HttpResponse()

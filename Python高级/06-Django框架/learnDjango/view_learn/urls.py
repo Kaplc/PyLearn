@@ -4,6 +4,7 @@ from .views import *
 app_name = 'view'
 
 urlpatterns = [
+    # ----------request-----------
     re_path(r'^index$', index, name='view'),
     # url位置传参
     re_path(r'^url_p/(\d+)/(\d+)$', url_position),
@@ -16,6 +17,8 @@ urlpatterns = [
     # 请求体POST非表单
     re_path(r'^body_bnf/', request_body_nfdata),
     # 请求头传参
+
+    # ------------response------------
     re_path(r'^header/', request_header),
     # HttpResponse_I
     re_path(r'resi/', http_response_i),
@@ -24,5 +27,16 @@ urlpatterns = [
     # JsonRespons
     re_path(r'^json/', json_response),
     # redirect重定向
-    re_path(r'redirect', redirect_i)
+    re_path(r'redirect', redirect_i),
+
+    # ------------cookie-----------
+    re_path(r'set_cookie', set_cookie),
+    re_path('read_cookie', read_cookie),
+    re_path('del_cookie', del_cookie),
+
+    # -----------session------------
+    re_path('set_session', set_session),
+    re_path('get_session', get_session),
+    re_path('del_session', del_session)
+
 ]
