@@ -5,13 +5,13 @@
 
 def my_middleware(get_request):
     # 初始化, 第一次使用中间件的时候被调用
-    print("初始化, init被调用")
+    print("中间件初始化语句执行, 仅在服务器启动时初始化, 只执行一次")
 
     def middleware(request):
-        print("请求前调用")
+        print("中间件view处理前调用")
         response = get_request(request)
 
-        print("请求后被调用")
+        print("中间件view处理后被调用")
 
         return response
 

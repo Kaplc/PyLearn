@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'view_learn.middleware.my_middleware'
 ]
 
 # URLCONF入口: 匹配url先在setting.py找入口文件

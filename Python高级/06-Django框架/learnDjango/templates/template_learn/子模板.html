@@ -1,0 +1,25 @@
+{% extends 'template_learn/模板继承(父模板).html' %}
+
+{#不继承就重写#}
+{% block title %}
+    子模板页面
+{% endblock %}
+
+
+{#继承就不重写#}
+
+
+{#不继承就重写#}
+{% block body %}
+    重写子模板main
+    <div>
+        div
+    </div>
+{% endblock %}
+
+
+
+
+{#不继承就直接重写空白#}
+{% block footer %}{% endblock footer %}
+

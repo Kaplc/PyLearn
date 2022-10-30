@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+{# 单行注释 #}
+
+{% comment %}
+    多
+    行
+    注
+    释
+{% endcomment %}
+
+{#单变量取值#}
+<div> {{ univariate }} </div>
+
+<hr>
+
+
+{#字典取值#}
+<div> {{ adict.name }} </div>
+
+<hr>
+
+{#列表取值#}
+<div> {{ alist.1 }} </div>
+
+<hr>
+
+
+{#for语句#}
+{% for i in alist %}
+
+    {#forloop.counter计数器#}
+    <div> 遍历第{{ forloop.counter }}次: i = {{ i }} </div>
+
+{% empty %}
+
+
+{% endfor %}
+
+{#if语句#}
+{% if a == 1 %}
+    <div>if语句: a = {{ a }} </div>
+
+{% elif a == 2 %}
+    <div>if语句: a = {{ a }} </div>
+{% else %}
+    <div>if语句: a = {{ a }} </div>
+
+{% endif %}
+
+{#运算符#}
+
+{% if b == 2 and c == 3 %}
+    <div>if语句and: b = {{ b }}, c = {{ c }} </div>
+
+{% elif b == 4 or c == 5 %}
+    <div>if语句or: b = {{ b }}, c = {{ c }} </div>
+{% else %}
+    <div>if语句else: b = {{ b }}, c = {{ c }} </div>
+
+{% endif %}
+
+
+</body>
+</html>

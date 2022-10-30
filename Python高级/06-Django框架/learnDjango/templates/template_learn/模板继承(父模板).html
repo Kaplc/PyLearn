@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {#继承空#}
+    <title>{% block title %}{% endblock title %}</title>
+
+</head>
+<body>
+{% block header %}
+    顶部
+    <hr>
+{% endblock %}
+
+
+{% block body %}
+    main
+{% endblock %}
+
+
+{% block footer %}
+    底部
+{% endblock %}
+
+
+</body>
+</html>

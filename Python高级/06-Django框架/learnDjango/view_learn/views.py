@@ -1,11 +1,10 @@
 import json
+from datetime import datetime
 
-from django.shortcuts import render
 from django.http import HttpResponse
-
 # Create your views here.
+from django.template import loader
 from django.urls import reverse
-
 # ------namespace的使用--------
 from django.views import View
 
@@ -206,6 +205,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # LoginRequiredMixin判断是否已经登陆
 # 重写dispatch
 
+class CenterViewLogin(LoginRequiredMixin, View):
+
+    def get(self, request):
+        return HttpResponse("GET")
+
+    def post(self, request):
+        return HttpResponse("POST")
+
+
 class CenterView(View):
 
     def get(self, request):
@@ -213,3 +221,67 @@ class CenterView(View):
 
     def post(self, request):
         return HttpResponse("POST")
+
+
+# -----------中间件----------
+
+def middleware_test(req):
+    print('接收请求')
+    return HttpResponse("请求成功")
+
+
+# ----------Django自带模板--------
+from django.shortcuts import render
+
+
+def self_templates(req):
+    # 获取模板文件
+    templates_data = loader.get_template('template_learn/index.html')
+    # 渲染的数据
+    context = {
+        "context": "模板渲染"
+    }
+
+    # return HttpResponse(templates_data.render(context))
+
+    # render(请求对象, '模板文件相对路径', 渲染的数据)
+    return render(req, 'template_learn/index.html', context)
+
+
+# --------模板语法------------
+
+def grammar(req):
+    template_data = loader.get_template('template_learn/模板语法.html')
+    # 多变量渲染键值对方式
+    context = {
+        "univariate": "单变量渲染成功",
+        "adict": {
+            "name": "zzy"
+        },
+        "alist": [1, 2, 3, 4, 5],
+        "a": 3,
+        "b": 5,
+        "c": 7,
+
+    }
+
+    return render(req, 'template_learn/模板语法.html', context)
+
+
+# -------------过滤器------------------
+
+def filter_test(req):
+    context = {
+        "div": """<a href="https://www.baidu.com" >baidu</a>""",
+        "alist": [1, 2, 3, 4],
+        "data": "",
+        "time": datetime.now()
+
+    }
+
+    return render(req, "template_learn/过滤器.html", context)
+
+
+# -----------模板继承-----------
+def inherit_test(req):
+    return render(req, 'template_learn/子模板.html')
