@@ -37,6 +37,8 @@ urlpatterns = [
     # -----------session------------
     re_path('set_session', set_session),
     re_path('get_session', get_session),
-    re_path('del_session', del_session)
+    re_path('del_session', del_session),
+
+    re_path('viewclass', CenterView.as_view())
 
 ]

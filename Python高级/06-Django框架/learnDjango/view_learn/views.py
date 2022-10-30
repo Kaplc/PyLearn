@@ -6,8 +6,10 @@ from django.http import HttpResponse
 # Create your views here.
 from django.urls import reverse
 
-
 # ------namespace的使用--------
+from django.views import View
+
+
 def index(request):
     # 项目的namespace:子应用的name
     path = reverse('view_learn:view')
@@ -194,3 +196,20 @@ def del_session(req):
     req.session.flush()
 
     return HttpResponse()
+
+
+# ----------类视图--------------
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+# LoginRequiredMixin判断是否已经登陆
+# 重写dispatch
+
+class CenterView(View):
+
+    def get(self, request):
+        return HttpResponse("GET")
+
+    def post(self, request):
+        return HttpResponse("POST")
