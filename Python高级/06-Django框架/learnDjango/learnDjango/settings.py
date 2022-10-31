@@ -66,10 +66,38 @@ ROOT_URLCONF = 'learnDjango.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # 修改为jinja2模板
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+
+        # Django默认模板引擎
+        # 'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
         # 设置模板路径, BASE_DIR是项目目录, 拼接出模板的路径
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
+
+        'OPTIONS': {
+            # jinja2模板环境配置, 默认的
+            'environment': 'jinja2_env.environment',
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+    # 报错'django.template.backends.django.DjangoTemplates' instance must be configured in TEMPLATES in order to use the admin application
+    # 重新添加Django自带模板引擎
+    {
+
+        # Django默认模板引擎
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
+        # 设置模板路径, BASE_DIR是项目目录, 拼接出模板的路径
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

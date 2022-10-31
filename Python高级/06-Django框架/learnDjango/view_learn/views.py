@@ -285,4 +285,20 @@ def filter_test(req):
 
 # -----------模板继承-----------
 def inherit_test(req):
-    return render(req, 'template_learn/子模板.html')
+    return render(req, 'template_learn/子模板.html'),
+
+
+# ----------jinja2-----------
+def jinja2(req):
+    context = {
+        "univariate": "单变量渲染成功",
+        "adict": {
+            "name": "zzy"
+        },
+        "alist": [1, 2, 3, 4, 5],
+        "a": 3,
+        "b": 5,
+        "c": 7,
+
+    }
+    return render(req, 'template_learn/jinja2.html', context)
