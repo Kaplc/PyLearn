@@ -26,8 +26,6 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/templates" />
-        <option value="$MODULE_DIR$/templates/template_learn" />
-        <option value="$MODULE_DIR$/templates/book" />
       </list>
     </option>
   </component>
