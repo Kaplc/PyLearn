@@ -3,6 +3,7 @@ from .views import *
 
 app_name = 'view'
 
+# noinspection PyTypeChecker
 urlpatterns = [
     # ----------request-----------
     re_path(r'^index', index, name='view'),
@@ -55,6 +56,6 @@ urlpatterns = [
     re_path('filter', filter_test),
 
     # -------模板继承--------
-    re_path('inherit', inherit_test)
+    re_path('inherit', inherit_test),
 
 ]

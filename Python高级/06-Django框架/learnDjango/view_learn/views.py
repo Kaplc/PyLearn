@@ -20,7 +20,7 @@ def index(request):
 # 位置传参
 # v1, v2接收url传参
 def url_position(request, v1, v2):
-    print('v2: ', v2)
+    print('v1: ', v1)
     print('v2: ', v2)
     return HttpResponse("url_位置传参")
 
@@ -242,10 +242,10 @@ def self_templates(req):
         "context": "模板渲染"
     }
 
-    # return HttpResponse(templates_data.render(context))
+    return HttpResponse(templates_data.render(context))
 
     # render(请求对象, '模板文件相对路径', 渲染的数据)
-    return render(req, 'template_learn/index.html', context)
+    # return render(req, 'template_learn/index.html', context)
 
 
 # --------模板语法------------
@@ -265,6 +265,7 @@ def grammar(req):
 
     }
 
+    # render(请求对象, '模板文件相对路径', 渲染的数据)
     return render(req, 'template_learn/模板语法.html', context)
 
 
