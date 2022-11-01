@@ -30,6 +30,6 @@ urlpatterns = [
     # 我这个字符串不包含转义字符，比如字符串中如果包含'\n'，则不将其视为换行符，而视为一个'\'字符和'n'字符来处理
     # 就是不用在\前面再打一个\
     re_path(r'^book', include('book.urls')),
-    path('view/', include('view_learn.urls', namespace='view_learn'))
+    re_path(r'^', include('view_learn.urls', namespace='view_learn'))
 
 ]

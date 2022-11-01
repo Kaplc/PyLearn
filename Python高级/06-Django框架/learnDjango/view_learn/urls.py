@@ -6,7 +6,7 @@ app_name = 'view'
 # noinspection PyTypeChecker
 urlpatterns = [
     # ----------request-----------
-    re_path(r'^index', index, name='view'),
+    re_path(r'$', index, name='view'),
     # url位置传参
     re_path(r'^url_p/(\d+)/(\d+)', url_position),
     # url关键字传参
@@ -25,7 +25,7 @@ urlpatterns = [
     re_path(r'resi/', http_response_i),
     # HttpResponse_II
     re_path(r'resii/', http_response_ii),
-    # JsonRespons
+    # JsonResponse
     re_path(r'json/', json_response),
     # redirect重定向
     re_path(r'redirect', redirect_i),

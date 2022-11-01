@@ -78,7 +78,8 @@ TEMPLATES = [
 
         'OPTIONS': {
             # jinja2模板环境配置, 默认的
-            'environment': 'jinja2_env.environment',
+            # 'environment': 'jinja2_env.environment',
+            'environment': 'learnDjango.jinja2_env.environment',
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -87,7 +88,8 @@ TEMPLATES = [
             ],
         },
     },
-    # 报错'django.template.backends.django.DjangoTemplates' instance must be configured in TEMPLATES in order to use the admin application
+    # 报错'django.template.backends.django.DjangoTemplates'
+    # instance must be configured in TEMPLATES in order to use the admin application
     # 重新添加Django自带模板引擎
     {
 

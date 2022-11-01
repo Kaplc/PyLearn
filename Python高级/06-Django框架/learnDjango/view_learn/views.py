@@ -13,7 +13,7 @@ def index(request):
     # 项目的namespace:子应用的name
     path = reverse('view_learn:view')
     print(path)
-    return HttpResponse("OK")
+    return HttpResponse("Welcome to Django")
 
 
 # ------url路径传参--------
@@ -285,7 +285,7 @@ def filter_test(req):
 
 # -----------模板继承-----------
 def inherit_test(req):
-    return render(req, 'template_learn/子模板.html'),
+    return render(req, 'template_learn/子模板.html')
 
 
 # ----------jinja2-----------
