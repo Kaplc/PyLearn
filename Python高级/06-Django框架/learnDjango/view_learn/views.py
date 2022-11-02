@@ -10,6 +10,7 @@ from django.views import View
 
 
 def index(request):
+    """命名空间namespace和name使用"""
     # 项目的namespace:子应用的name
     path = reverse('view_learn:view')
     print(path)
@@ -20,6 +21,7 @@ def index(request):
 # 位置传参
 # v1, v2接收url传参
 def url_position(request, v1, v2):
+    """url位置传参"""
     print('v1: ', v1)
     print('v2: ', v2)
     return HttpResponse("url_位置传参")
@@ -28,6 +30,7 @@ def url_position(request, v1, v2):
 # 关键字传参
 # v1, v2 是key
 def url_keyword(request, v2, v1):
+    """url关键字传参"""
     print('v2: ', v2)
     print('v1: ', v1)
     return HttpResponse("url_关键字传参")
@@ -35,6 +38,7 @@ def url_keyword(request, v2, v1):
 
 # ---------字符串传参（形如?k1=v1&k2=v2）----------
 def query_string(request):
+    """字符串传参"""
     # get()获取单个参数, 多个值只会获取最后一个
     v1 = request.GET.get('v1')
     v2 = request.GET.get('v2')
@@ -52,6 +56,7 @@ def query_string(request):
 # --------请求体传参----------
 
 def request_body_fdata(request):
+    """请求体传参(表单)"""
     a = request.POST.get('v1')
     b = request.POST.get('v2')
     alist = request.POST.getlist('v1')
@@ -63,6 +68,7 @@ def request_body_fdata(request):
 
 
 def request_body_nfdata(request):
+    """请求体传参(非表单)"""
     # 接收JSON字符串
     json_data = request.body
     edata = json_data.decode()
@@ -106,6 +112,7 @@ def http_response_i(request):
 
 
 def http_response_ii(res):
+    """login类视图"""
     # 或者
     # HttpResponse(content=响应体, content_type=响应体数据类型, status=状态码)
     # content_type是mime类型: text/html, text/css等等
@@ -129,6 +136,7 @@ from django.http import JsonResponse
 
 
 def json_response(req):
+    """login类视图"""
     json_data = {
         "aaa": "1",
         "bbb": "2"
@@ -141,6 +149,7 @@ from django.shortcuts import redirect
 
 
 def redirect_i(request):
+    """redirect重定向"""
     # 参数是除ip和端口的完整的url
     return redirect('/view/index')
 
@@ -148,6 +157,7 @@ def redirect_i(request):
 # ----------cookie----------------
 
 def set_cookie(req):
+    """设置cookie"""
     response = HttpResponse()
     # 从响应发送cookie
     # set_cookie(cookie名, cookie值, max_age=过期时间(秒))
@@ -156,6 +166,7 @@ def set_cookie(req):
 
 
 def read_cookie(req):
+    """login类视图"""
     # 从请求获取cookie
     cookie = req.COOKIES.get('set_cookie')
     print(cookie)
@@ -163,6 +174,7 @@ def read_cookie(req):
 
 
 def del_cookie(req):
+    """login类视图"""
     # 从请求删除cookie
     res = HttpResponse()
     res.delete_cookie('set_cookie')
@@ -172,6 +184,7 @@ def del_cookie(req):
 # -----------session-------------
 
 def set_session(req):
+    """login类视图"""
     print(req.COOKIES)
     username = 'zzy'
     # 设置session, 并保存至数据库
@@ -182,6 +195,7 @@ def set_session(req):
 
 
 def get_session(req):
+    """login类视图"""
     # 从数据库获取session通过关键字
     session_data = req.session.get('username')
     print(session_data)
@@ -190,6 +204,7 @@ def get_session(req):
 
 
 def del_session(req):
+    """login类视图"""
     # req.session.clear()
     # 从数据库删除session
     req.session.flush()
@@ -206,7 +221,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # 重写dispatch
 
 class CenterViewLogin(LoginRequiredMixin, View):
-
+    """login类视图"""
     def get(self, request):
         return HttpResponse("GET")
 
@@ -215,7 +230,7 @@ class CenterViewLogin(LoginRequiredMixin, View):
 
 
 class CenterView(View):
-
+    """类视图"""
     def get(self, request):
         return HttpResponse("GET")
 
@@ -226,6 +241,7 @@ class CenterView(View):
 # -----------中间件----------
 
 def middleware_test(req):
+    """中间件"""
     print('接收请求')
     return HttpResponse("请求成功")
 
@@ -235,6 +251,7 @@ from django.shortcuts import render
 
 
 def self_templates(req):
+    """Django自带模板"""
     # 获取模板文件
     templates_data = loader.get_template('template_learn/index.html')
     # 渲染的数据
@@ -251,6 +268,7 @@ def self_templates(req):
 # --------模板语法------------
 
 def grammar(req):
+    """模板语法"""
     template_data = loader.get_template('template_learn/模板语法.html')
     # 多变量渲染键值对方式
     context = {
@@ -272,6 +290,7 @@ def grammar(req):
 # -------------过滤器------------------
 
 def filter_test(req):
+    """过滤器"""
     context = {
         "div": """<a href="https://www.baidu.com" >baidu</a>""",
         "alist": [1, 2, 3, 4],
@@ -285,11 +304,13 @@ def filter_test(req):
 
 # -----------模板继承-----------
 def inherit_test(req):
+    """模板继承"""
     return render(req, 'template_learn/子模板.html')
 
 
 # ----------jinja2-----------
 def jinja2(req):
+    """jinja2"""
     context = {
         "univariate": "单变量渲染成功",
         "adict": {
