@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <span>[[ message ]]</span> <br>
+</div>
+</body>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        // 自定义语法
+        delimiters: ['[[', ']]'],
+        data: {
+            message: 'Hello Vue!',
+
+        }
+
+    })
+</script>
+
+</html>
