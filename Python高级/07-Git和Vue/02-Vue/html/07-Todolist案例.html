@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="newitem"> <button @click="addNetItem(newitem)">添加</button>
+        <hr />
+        <ul>
+            <li v-for="(item, index) in items">               
+                ({{ index + 1 }}){{item}}
+                <input type="button" value="删除" @click="del(index)">
+                <input type="button" value="上移" @click="up(index)">
+                <input type="button" value="下移" @click="down(index)">
+            </li>
+            
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            items: ['学习Vue', '学习Django基础', '学习Django前台'],
+            newitem: '',
+        },
+        methods: {
+            addNetItem: function (newitem) {
+                if (newitem === "") {
+                    alert("不能添加空数据")
+                } else {
+                    // 将newitem添加到列表遍历显示
+                    this.items.push(this.newitem);
+                    this.newitem = '';
+                }
+
+            },
+
+            del: function(index){
+                this.items.splice(index,1)
+            },
+
+            up: function(index){
+                
+                // var a = this.items[index - 1]
+                
+                // this.items[index - 1] = this.items[index]
+                // this.items[index] = a
+
+                current=this.items[index];
+                // splice(index, howmany, element1, ...n)
+                // index: 从哪里插入删除
+                // howmany: 删除多少元素
+                // element1: 规定要添加到数组的元素, 从index下标开始
+                this.items.splice(index,1);
+                this.items.splice(index-1,0,current);
+                
+            },
+
+            down: function(index){
+                current=this.items[index];
+                this.items.splice(index,1);
+                this.items.splice(index+1,0,current);
+            }
+        }
+    })
+</script>
+
+</html>

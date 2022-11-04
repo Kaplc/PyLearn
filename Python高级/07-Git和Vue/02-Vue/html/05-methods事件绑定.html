@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 点击事件内嵌式 -->
+        <button v-on:click="counter += 1">Add 1</button>
+        <p>点击了 {{ counter }} 次.</p>
+        <!-- 调用对象方法 -->
+        <button v-on:click="c2">vue对象模式</button>
+        <p>点击了 {{ counter2 }} 次.</p>
+        <!-- 传递参数 -->
+        <button v-on:click="c3(100)">传参模式</button>
+        <p>点击了 {{ counter3 }} 次.</p>
+        <!-- v-on简写@ -->
+        <button @click="c4">简写v-on</button>
+        <p>点击了 {{ counter4 }} 次.</p>
+    </div>
+</body>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0,
+            counter2: 0,
+            counter3: 0,
+            counter4: 0,
+        },
+        methods: {
+            c2: function () {
+                this.counter2 += 1
+            },
+            c3: function (num) {
+                this.counter3 += num
+            },
+            c4: function(){
+                this.counter4 += 1
+            }
+        },
+    })
+</script>
+</script>
+
+</html>

@@ -13,6 +13,10 @@
         <li v-for="item in items">
             {{ item.title }}~~~{{ item.author }}~~~{{ item.publishedAt }}
         </li>
+        <!-- index下标从0开始 -->
+        <li v-for="(i, index) in alist">
+            [{{ index }}]={{ i }}
+        </li>
     </ul>
 </div>
 </body>
@@ -38,10 +42,10 @@
                 }
             ],
             alist: [
-                {
-                    name: 'zzy',
-
-                }
+                'zzy',
+                1,
+                2,
+                3
             ]
         }
     })
