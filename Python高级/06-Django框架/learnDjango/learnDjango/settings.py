@@ -17,6 +17,7 @@ from pathlib import Path
 # Path(__file__).resolve(): 获取当前文件的绝对路径
 # Path(__file__).resolve().parent: 获取当前文件的绝对路径上一级(父目录)
 # Path(__file__).resolve().parent.parent: 再上一级就是项目的根目录
+# ---------------定义路径------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -32,10 +33,12 @@ SECRET_KEY = 'django-insecure-rds!n()zs%@me-^7%5&zqfdv@d75(*lxv26%jkkhifck-9_8&4
 DEBUG = True
 
 # 允许以哪个ip访问, 默认127.0.0.1
+# ---------设置访问ip-----------
 ALLOWED_HOSTS = ['127.0.0.1', 'pdd42.bolinkang.cn']
 
 # Application definition
 
+# ------------注册子应用-----------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,6 +51,8 @@ INSTALLED_APPS = [
     'models_learn.apps.ModelsLearnConfig',
     'view_learn.apps.ViewLearnConfig'
 ]
+
+# ----------注册中间件--------
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,6 +69,7 @@ MIDDLEWARE = [
 # URLCONF入口: 匹配url先在setting.py找入口文件
 ROOT_URLCONF = 'learnDjango.urls'
 
+# ----------设置模板-----------
 TEMPLATES = [
     {
         # 修改为jinja2模板
@@ -111,6 +117,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'learnDjango.wsgi.application'
 
 # Database
@@ -127,6 +134,8 @@ WSGI_APPLICATION = 'learnDjango.wsgi.application'
 #         'NAME': 'book'  # 数据库名字
 #     }
 # }
+
+# --------------设置数据库---------------
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -138,8 +147,24 @@ DATABASES = {
     }
 }
 
+# -------------设置session储存方式---------
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_CACHE_ALIAS = 'default'
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -173,6 +198,7 @@ USE_TZ = True
 
 # DJango通过此方式判断访问的是否是静态文件
 # 路径: https://ip:port + STATIC_URL + 文件名
+# -----------配置静态文件---------------
 STATIC_URL = 'static/'
 
 # 告知系统静态文件
@@ -184,3 +210,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

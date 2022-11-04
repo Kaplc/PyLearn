@@ -21,10 +21,10 @@ urlpatterns = [
 
     # ------------response------------
     re_path(r'header/', request_header),
-    # HttpResponse_I
-    re_path(r'resi/', http_response_i),
-    # HttpResponse_II
-    re_path(r'resii/', http_response_ii),
+    # 响应头
+    re_path(r'resi/', http_response_header),
+    # 响应体
+    re_path(r'resii/', http_response_body),
     # JsonResponse
     re_path(r'json/', json_response),
     # redirect重定向

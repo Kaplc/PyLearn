@@ -86,6 +86,7 @@ def request_body_nfdata(request):
 
 # -------请求头传参-------
 def request_header(request):
+    """请求头传参"""
     print(request.META['CONTENT_TYPE'])
     print(request.META['REMOTE_HOST'])
 
@@ -101,7 +102,8 @@ def request_header(request):
 
 # ---------HttpResponse对象------------
 
-def http_response_i(request):
+def http_response_header(request):
+    """响应头响应"""
     # 获取HttpResponse对象
     response = HttpResponse()
     # 调用属性方式设置状态码(100-599)
@@ -111,8 +113,8 @@ def http_response_i(request):
     return response
 
 
-def http_response_ii(res):
-    """login类视图"""
+def http_response_body(res):
+    """响应体"""
     # 或者
     # HttpResponse(content=响应体, content_type=响应体数据类型, status=状态码)
     # content_type是mime类型: text/html, text/css等等
@@ -136,7 +138,7 @@ from django.http import JsonResponse
 
 
 def json_response(req):
-    """login类视图"""
+    """json响应"""
     json_data = {
         "aaa": "1",
         "bbb": "2"
@@ -166,7 +168,7 @@ def set_cookie(req):
 
 
 def read_cookie(req):
-    """login类视图"""
+    """读取cookie"""
     # 从请求获取cookie
     cookie = req.COOKIES.get('set_cookie')
     print(cookie)
@@ -174,7 +176,7 @@ def read_cookie(req):
 
 
 def del_cookie(req):
-    """login类视图"""
+    """删除cookie"""
     # 从请求删除cookie
     res = HttpResponse()
     res.delete_cookie('set_cookie')
@@ -184,7 +186,7 @@ def del_cookie(req):
 # -----------session-------------
 
 def set_session(req):
-    """login类视图"""
+    """创建session"""
     print(req.COOKIES)
     username = 'zzy'
     # 设置session, 并保存至数据库
@@ -195,7 +197,7 @@ def set_session(req):
 
 
 def get_session(req):
-    """login类视图"""
+    """读取session"""
     # 从数据库获取session通过关键字
     session_data = req.session.get('username')
     print(session_data)
@@ -204,7 +206,7 @@ def get_session(req):
 
 
 def del_session(req):
-    """login类视图"""
+    """删除session"""
     # req.session.clear()
     # 从数据库删除session
     req.session.flush()
