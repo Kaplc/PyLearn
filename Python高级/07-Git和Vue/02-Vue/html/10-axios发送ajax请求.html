@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="axios.min.js"></script>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <a @click="login" href="javascript:;">登录-GET</a> <br>
+    <a @click="login2" href="javascript:;">登录-GET2</a> <br>
+    <table border="1">
+        <tr>
+            <td>用 户 名</td>
+            <td><input type="text" v-model="username"></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" v-model="password1"></td>
+        </tr>
+
+    </table>
+    <input type="button" value="提交" @click="login3(username, password1)">
+
+</div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        delimiters: ["[[", "]]"],
+        data: {
+            username: '',
+            password1: '',
+        },
+        methods: {
+            // 第一种get请求
+            login: function () {
+                // 发送get请求, 参数写在url内
+                // let url = 'http://127.0.0.1:8000/login/?username=admin&password=123';
+                let url = 'http://127.0.0.1:80/view/axios/?username=login1&password=login1'
+                // get(): 请求地址url
+                // then(()=>{}): 请求成功执行的方法
+                // catch(()=>{}): 请求失败执行的方法
+                axios.get(url).then(response => {
+                    if (response.data.code == '200') {
+                        alert("successful")
+                        this.message = response.data.info.username;
+                    } else if (response.data.code == '400') {
+                        this.message = response.data.msg;
+                    }
+                }).catch(error => {
+                    alert("error")
+                    console.log(error)
+                })
+            },
+
+            // 第二种get请求
+            login2: function () {
+                // let url = 'http://127.0.0.1:8000/login/';
+                let url = 'http://127.0.0.1:80/view/axios/'
+                // 发送get的第二种方式: get(url,{内容})
+                axios.get(url, {
+                    params: {
+                        "username": "login2",
+                        "password": "login2"
+                    }
+                }).then(response => {
+                    if (response.data.code == '200') {
+                        this.message = response.data.info.username;
+                    } else if (response.data.code == '400') {
+                        this.message = response.data.msg;
+                    }
+                }).catch(error => {
+                    alert("error")
+                    console.log(error)
+
+                })
+            },
+
+            // post请求
+            login3: function (username, password) {
+                let url = 'http://127.0.0.1:80/view/axios';
+                axios.post(url, {
+                    "username": this.username,
+                    "password": this.password1,
+                }).then(response => {
+                    if (response.data.code == '200') {
+                        this.message = response.data.info.username;
+                    } else if (response.data.code == '400') {
+                        this.message = response.data.msg;
+                    }
+                }).catch(error => {
+                    alert("error")
+                    console.log(error)
+                })
+            }
+        }
+    })
+</script>
+</html>
