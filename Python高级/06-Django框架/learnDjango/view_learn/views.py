@@ -224,6 +224,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class CenterViewLogin(LoginRequiredMixin, View):
     """login类视图"""
+
     def get(self, request):
         return HttpResponse("GET")
 
@@ -233,6 +234,7 @@ class CenterViewLogin(LoginRequiredMixin, View):
 
 class CenterView(View):
     """类视图"""
+
     def get(self, request):
         return HttpResponse("GET")
 
@@ -325,3 +327,23 @@ def jinja2(req):
 
     }
     return render(req, 'template_learn/jinja2.html', context)
+
+
+# --------axios发送请求------
+class Axios(View):
+
+    def get(self, req):
+        username = req.GET.get('username')
+        password = req.GET.get('password')
+        print(username + ':' + password)
+        return render(req, 'axios/10-axios发送ajax请求.html')
+
+    def post(self, req):
+        print('111111111')
+        # post发送的是json原始数据, 要先获取参数
+        data = json.loads(req.body.decode())
+        username = data.get('username')
+        password = data.get('password')
+        print(username + ':' + password)
+        return HttpResponse("123")
+

@@ -3,8 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="vue.js"></script>
 </head>
 <body>
 
 </body>
+
+<script>
+
+
+    // ES6箭头函数
+    // 无参数无返回值
+    var aa = ()=>{
+        console.log("aa")
+    }
+    
+    // 有参数无返回值
+    var bb = (food)=>{
+        alert("bb" + food)
+    }
+    
+    // 有参数有返回值
+    var cc = (n1,n2)=>{
+        return n1 + n2
+    }
+
+    aa()
+    bb("苹果")
+    console.log( cc(1,2) )
+    
+</script>
 </html>

@@ -58,6 +58,9 @@ urlpatterns = [
     # -------模板继承--------
     re_path('inherit', inherit_test),
 
-    re_path('jinja2', jinja2)
+    re_path('jinja2', jinja2),
+
+    # ------axios发送请求---------
+    re_path('axios', Axios.as_view())
 
 ]
