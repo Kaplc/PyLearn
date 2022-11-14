@@ -321,6 +321,7 @@ def jinja2(req):
             "name": "zzy"
         },
         "alist": [1, 2, 3, 4, 5],
+        "aa": 'true',
         "a": 3,
         "b": 5,
         "c": 7,
